@@ -1,0 +1,137 @@
+\documentclass[12pt]{article}
+\usepackage{a4wide,bm,booktabs,graphicx,mathtools,hyperref,makecell,multirow,wasysym}
+\usepackage[table]{xcolor}
+\usepackage{blindtext}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt plus 2pt minus 1pt}
+\renewcommand{\arraystretch}{1.1}
+\definecolor{ntc}{rgb}{0.58,0.11,0.5} % [148,27,128] / 255
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% titlepage
+\thispagestyle{empty}
+\includegraphics[width=0.4\linewidth]{Figures/logo_NTC_en} \\
+
+\begin{center}
+{\large\it BIOMECHANICAL HUMAN BODY MODELS} \\ [5 mm]
+
+\textcolor{ntc}{\hrule width \linewidth height 1pt} \vskip1cm
+
+{\large\it SOFTWARE} \\ [5 mm]
+
+{\bf Pelvic Floor Morphing} \\ [5 mm]
+
+\textcolor{ntc}{\hrule width \linewidth height 1pt} \vskip1cm
+
+\begin{tabular}{p{6cm} p{10cm}}
+Author(s): & Lud\v{e}k Hyn\v{c}\'{\i}k, 61950 \\ [1 mm]
+& Adam Wittek, The University of Western Australia \\
+\end{tabular}
+
+\vskip15mm
+
+\begin{tabular} {p{6cm} p{10cm}}
+Project number: & CZ.02.1.01/0.0/0.0/17\_048/0007280 \\
+& Gledden fellowship, The University of Western Australia \\
+\end{tabular}
+
+\vskip15mm
+
+\begin{tabular} {p{6cm} p{10cm}}
+Report number: & NTC-ASW-26-001 \\ [2 mm]
+Leader of department: & Jan Vychytil \\ [3 mm]
+Director of centre: & Petr Kaval\'{\i}\v{r} \\
+\end{tabular}
+
+\vskip1cm
+
+\textcolor{ntc}{\hrule width \linewidth height 1pt} \vskip1cm
+
+{\large\it PLZE\v{N}, JUNE 2026}
+
+\end{center}
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tableofcontents
+\newpage
+\setcounter{page}{1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Mathematical background}\addcontentsline{toc}{section}{\protect\numberline{}Mathematical background}
+\input{registration}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section*{Implementation}\addcontentsline{toc}{section}{\protect\numberline{}Implementation}
+The software module concerns the 2026 version of 3D Slicer extension {\it Pelvic Floor model} (PelFoM) available at \href{https://github.com/PelFoM}{GitHub}, see Figure \ref{fig:environment}. 
+
+\begin{figure}[h]
+\centering\includegraphics[width=\textwidth]{Figures/environment}
+\caption{Environment eith the reference model}\label{fig:environment}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{License}\addcontentsline{toc}{subsection}{\protect\numberline{}License}
+The module is available under a BSD 3-Clause "New" or "Revised" License.
+
+\subsection*{Installation}\addcontentsline{toc}{subsection}{\protect\numberline{}Installation}
+For installation, follow the steps in the \href{https://docs.google.com/presentation/d/1jcyetWDrEB9OtRtLg6uCvz5_fK_u3cEZl25lYEZmLOw/present}{Installation Manual}. Developers may use \href{https://docs.google.com/spreadsheets/d/1wAweZy6TkhwOCEfc8A3dBSrNZwW-ndznlEXvNUEGGFk/edit}{Developers Manual} and \href{https://docs.google.com/presentation/d/1aj0amaTXFlie0vdCJsjmK7jthto73RxiStYDiB6T8uw/present}{Code Structure}. The mathematical theory of registration is described here and available \href{https://github.com/PelFoM/Theory/blob/main/Pelvic_Floor_Morphing.pdf}{online}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Reference model}\addcontentsline{toc}{subsection}{\protect\numberline{}Reference model}
+The module consists of a reference bony pelvis model (see Figure \ref{fig:environment}) including pre-defined anatomical landmarks (see Table \ref{tab:landmarks} and Figure \ref{fig:landmarks}).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection*{Anatomical landmarks}\addcontentsline{toc}{subsubsection}{\protect\numberline{}Anatomical landmarks}
+\begin{table}[h]
+\centering\begin{tabular}{|l|l|}
+\hline
+\textbf{Landmark} & \textbf{Anatomical description} \\
+\hline
+PSA & Anterior point of the pubic symphysis (superior border) \\
+PSP & Posterior point of the pubic symphysis \\
+PSI & Inferior point of the pubic symphysis (inferior border) \\
+L5 & Spinous process of the fifth lumbar vertebra \\
+PR & Sacral promontory \\
+S3 & Midpoint of the superior surface of the third sacral vertebra (S3) \\
+SJ & Sacrococcygeal joint (internal landmark) \\
+SB & Sacrococcygeal joint (external surface landmark) \\
+ILL & Left-most point on the iliopectineal line \\
+ILR & Right-most point on the iliopectineal line \\
+BCL & Left iliac crest (distantia bicristalis) \\
+BCR & Right iliac crest (distantia bicristalis) \\
+BSL & Left anterior superior iliac spine (distantia bispinalis) \\
+BSR & Right anterior superior iliac spine (distantia bispinalis) \\
+ISL & Left ischial spine \\
+ISR & Right ischial spine \\
+ITL & Left ischial tuberosity \\
+ITR & Right ischial tuberosity \\
+TIL & Left tuber ischiadicum \\
+TIR & Right tuber ischiadicum \\
+PSISL & Left posterior superior iliac spine (skin dimple) \\
+PSISR & Right posterior superior iliac spine (skin dimple) \\
+TRL & Left greater trochanter \\
+TRR & Right greater trochanter \\
+\hline
+\end{tabular}
+\caption{Anatomical landmarks}\label{tab:landmarks}
+\end{table}
+
+\begin{figure}[h]
+\centering\includegraphics[width=0.9\textwidth]{Pelvimetry/pelvimetry}
+\caption{Anatomical landmarks}\label{fig:landmarks}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Acknowledgement}\addcontentsline{toc}{section}{\protect\numberline{}Acknowledgement}
+The work was supported by the project "Integration of biomedical research and health care in the Pilsen metropolitan area“; reg. no. CZ.02.01.01/00/23\_021/0008828) - co-funded by the European Union and by the State Budget of the Czech Republic.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\bibliographystyle{plain}\addcontentsline{toc}{section}{\protect\numberline{}References} 
+\bibliography{bibliography}
+
+\end{document}
